@@ -1,0 +1,272 @@
+### 1. Extract acoustic features ###
+source
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0001_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0002_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0003_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0004_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0005_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0006_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0007_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0008_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0009_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0010_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0011_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0012_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0013_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0014_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0015_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0016_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0017_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0018_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0019_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0020_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0021_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0022_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0023_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0024_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0025_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0026_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0027_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0028_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0029_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0030_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0031_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0032_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0033_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0034_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0035_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0036_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0037_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0038_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0039_AIR.wav
+Extract acoustic features: data/wav/yasuhara_ATRsetA_AIR/0040_AIR.wav
+target
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0001_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0002_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0003_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0004_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0005_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0006_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0007_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0008_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0009_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0010_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0011_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0012_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0013_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0014_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0015_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0016_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0017_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0018_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0019_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0020_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0021_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0022_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0023_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0024_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0025_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0026_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0027_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0028_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0029_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0030_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0031_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0032_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0033_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0034_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0035_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0036_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0037_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0038_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0039_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/yasuhara_ATRsetA_NAM/0040_NAM.wav
+excahge f0
+### 2. Estimate acoustic feature statistics ###
+f0stats save into data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/stats/yasuhara_ATRsetA_AIR.h5
+gvstats save into data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/stats/yasuhara_ATRsetA_AIR.h5
+f0stats save into data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/stats/yasuhara_ATRsetA_NAM.h5
+gvstats save into data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/stats/yasuhara_ATRsetA_NAM.h5
+### 3. Estimate time warping function and jnt ###
+## Alignment mcep w/o 0-th and silence ##
+1-th joint feature extraction starts.
+distortion [dB] for 1-th file: 10.29351353562423
+distortion [dB] for 2-th file: 11.686887059672948
+distortion [dB] for 3-th file: 11.588285751337594
+distortion [dB] for 4-th file: 10.513626819657166
+distortion [dB] for 5-th file: 10.795848376776373
+distortion [dB] for 6-th file: 11.415255331994652
+distortion [dB] for 7-th file: 11.326009530920956
+distortion [dB] for 8-th file: 11.271908069109958
+distortion [dB] for 9-th file: 11.262159685199071
+distortion [dB] for 10-th file: 11.23342750624445
+distortion [dB] for 11-th file: 11.550215383279467
+distortion [dB] for 12-th file: 11.17424547521341
+distortion [dB] for 13-th file: 10.987164453354293
+distortion [dB] for 14-th file: 11.63355202495968
+distortion [dB] for 15-th file: 11.54331977781601
+distortion [dB] for 16-th file: 11.201209040931698
+distortion [dB] for 17-th file: 11.225587617988062
+distortion [dB] for 18-th file: 11.349827093530273
+distortion [dB] for 19-th file: 11.854919028947153
+distortion [dB] for 20-th file: 12.308144766023227
+distortion [dB] for 21-th file: 11.294066599345767
+distortion [dB] for 22-th file: 11.3621769684994
+distortion [dB] for 23-th file: 12.003283882644935
+distortion [dB] for 24-th file: 12.063826356044572
+distortion [dB] for 25-th file: 12.66873158443136
+distortion [dB] for 26-th file: 12.001287843759423
+distortion [dB] for 27-th file: 12.02250767490643
+distortion [dB] for 28-th file: 12.219332404055589
+distortion [dB] for 29-th file: 11.67984528090768
+distortion [dB] for 30-th file: 12.149859027670551
+distortion [dB] for 31-th file: 11.863474955073787/home/okada/.pyenv/versions/anaconda3-5.0.0/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+
+distortion [dB] for 32-th file: 11.921347120178956
+distortion [dB] for 33-th file: 11.855481069799596
+distortion [dB] for 34-th file: 11.827798057318462
+distortion [dB] for 35-th file: 11.759263458913496
+distortion [dB] for 36-th file: 12.162663850313287
+distortion [dB] for 37-th file: 11.653449949967285
+distortion [dB] for 38-th file: 13.688927104417182
+distortion [dB] for 39-th file: 12.478203732261827
+distortion [dB] for 40-th file: 11.981549074566765
+2-th joint feature extraction starts.
+distortion [dB] for 1-th file: 3.4829264379134335
+distortion [dB] for 2-th file: 3.9786687784883497
+distortion [dB] for 3-th file: 4.630535240151867
+distortion [dB] for 4-th file: 3.593392541157562
+distortion [dB] for 5-th file: 3.522209958592195
+distortion [dB] for 6-th file: 5.415153689780901
+distortion [dB] for 7-th file: 3.560505805738393
+distortion [dB] for 8-th file: 3.2237951172951353
+distortion [dB] for 9-th file: 3.358068480616689
+distortion [dB] for 10-th file: 3.2166578798018373
+distortion [dB] for 11-th file: 3.1076980902438094
+distortion [dB] for 12-th file: 3.15485020517884
+distortion [dB] for 13-th file: 3.398917698890621
+distortion [dB] for 14-th file: 3.267434946617829
+distortion [dB] for 15-th file: 3.045459815852549
+distortion [dB] for 16-th file: 3.300692980201181
+distortion [dB] for 17-th file: 3.0110913859721236
+distortion [dB] for 18-th file: 3.0143453054661142
+distortion [dB] for 19-th file: 3.340393140775746
+distortion [dB] for 20-th file: 4.339995406124455
+distortion [dB] for 21-th file: 3.4500977939162008
+distortion [dB] for 22-th file: 3.7105454732886414
+distortion [dB] for 23-th file: 5.114573224873197
+distortion [dB] for 24-th file: 4.24631314869761
+distortion [dB] for 25-th file: 4.517996390396053
+distortion [dB] for 26-th file: 5.086908798974395
+distortion [dB] for 27-th file: 4.584376292669658
+distortion [dB] for 28-th file: 3.2616899457834445
+distortion [dB] for 29-th file: 3.019194882689655
+distortion [dB] for 30-th file: 3.1704435633758883
+distortion [dB] for 31-th file: 3.1178765098557957
+distortion [dB] for 32-th file: 2.9621033482030867
+distortion [dB] for 33-th file: 2.988877722223082
+distortion [dB] for 34-th file: 3.320717278111164
+distortion [dB] for 35-th file: 3.51755092344084
+distortion [dB] for 36-th file: 3.6982903796635687
+distortion [dB] for 37-th file: 3.414944181196544
+distortion [dB] for 38-th file: 3.5031808546061436
+distortion [dB] for 39-th file: 3.1982541534399003
+distortion [dB] for 40-th file: 2.950904521817835
+3-th joint feature extraction starts.
+distortion [dB] for 1-th file: 3.4576966064343635
+distortion [dB] for 2-th file: 3.705792233971814
+distortion [dB] for 3-th file: 4.097140266012046
+distortion [dB] for 4-th file: 3.4965226005732757
+distortion [dB] for 5-th file: 3.3836810882622594
+distortion [dB] for 6-th file: 5.232092083270718
+distortion [dB] for 7-th file: 3.4558314483101173
+distortion [dB] for 8-th file: 3.1782616465608955
+distortion [dB] for 9-th file: 3.227932134146338
+distortion [dB] for 10-th file: 3.1319129151467746
+distortion [dB] for 11-th file: 3.071740494951924
+distortion [dB] for 12-th file: 3.091820795361894
+distortion [dB] for 13-th file: 3.2500683610154972
+distortion [dB] for 14-th file: 3.1991904165762417
+distortion [dB] for 15-th file: 3.0141526926557853
+distortion [dB] for 16-th file: 3.206850136473885
+distortion [dB] for 17-th file: 2.974427688046665
+distortion [dB] for 18-th file: 2.9629942129306976
+distortion [dB] for 19-th file: 3.20136648863991
+distortion [dB] for 20-th file: 4.058900359819089
+distortion [dB] for 21-th file: 3.4171253573127625
+distortion [dB] for 22-th file: 3.4924055961637808
+distortion [dB] for 23-th file: 4.693353424229294
+distortion [dB] for 24-th file: 3.9890423941203945
+distortion [dB] for 25-th file: 4.001430617937821
+distortion [dB] for 26-th file: 4.2391761973201
+distortion [dB] for 27-th file: 4.447975731858845
+distortion [dB] for 28-th file: 3.142957860079128
+distortion [dB] for 29-th file: 2.974936184974481
+distortion [dB] for 30-th file: 3.098132849540666
+distortion [dB] for 31-th file: 3.032193744959506
+distortion [dB] for 32-th file: 2.930110501293527
+distortion [dB] for 33-th file: 2.917133814425199
+distortion [dB] for 34-th file: 3.2762374908059626
+distortion [dB] for 35-th file: 3.422069908999412
+distortion [dB] for 36-th file: 3.5661951590363086
+distortion [dB] for 37-th file: 3.3410930768650355
+distortion [dB] for 38-th file: 3.3650269893500457
+distortion [dB] for 39-th file: 3.1159461155909054
+distortion [dB] for 40-th file: 2.8854463730269257
+## Alignment codeap into target length using given twf ##
+### 4. Train GMM and converted GV ###
+Conversion model for mcep save into data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/model/GMM_mcep.pkl
+Conversion model for codeap save into data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/model/GMM_codeap.pkl
+Converted gvstats save into data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/model/cvgv.h5
+### 5. Conversion based on the trained models ###
+GMM for mcep conversion mode: diff
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0041_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0042_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0043_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0044_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0045_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0046_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0047_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0048_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0049_AIR_DIFFVC.wav
+data/pair/yasuhara_ATRsetA_AIR-yasuhara_ATRsetA_NAM/test/yasuhara_ATRsetA_AIR/0050_AIR_DIFFVC.wav

@@ -1,0 +1,272 @@
+### 1. Extract acoustic features ###
+source
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0001_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0002_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0003_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0004_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0005_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0006_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0007_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0008_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0009_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0010_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0011_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0012_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0013_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0014_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0015_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0016_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0017_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0018_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0019_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0020_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0021_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0022_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0023_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0024_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0025_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0026_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0027_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0028_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0029_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0030_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0031_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0032_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0033_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0034_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0035_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0036_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0037_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0038_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0039_AIR.wav
+Extract acoustic features: data/wav/otake_ATRsetA_AIR/0040_AIR.wav
+target
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0001_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0002_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0003_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0004_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0005_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0006_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0007_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0008_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0009_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0010_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0011_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0012_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0013_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0014_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0015_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0016_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0017_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0018_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0019_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0020_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0021_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0022_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0023_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0024_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0025_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0026_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0027_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0028_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0029_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0030_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0031_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0032_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0033_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0034_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0035_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0036_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0037_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0038_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0039_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/otake_ATRsetA_NAM/0040_NAM.wav
+excahge f0
+### 2. Estimate acoustic feature statistics ###
+f0stats save into data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/stats/otake_ATRsetA_AIR.h5
+gvstats save into data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/stats/otake_ATRsetA_AIR.h5
+f0stats save into data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/stats/otake_ATRsetA_NAM.h5
+gvstats save into data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/stats/otake_ATRsetA_NAM.h5
+### 3. Estimate time warping function and jnt ###
+## Alignment mcep w/o 0-th and silence ##
+1-th joint feature extraction starts.
+distortion [dB] for 1-th file: 11.782039948733484
+distortion [dB] for 2-th file: 12.662278386735284
+distortion [dB] for 3-th file: 12.596294208594532
+distortion [dB] for 4-th file: 13.022153543374019
+distortion [dB] for 5-th file: 13.145083414682711
+distortion [dB] for 6-th file: 11.748586547047523
+distortion [dB] for 7-th file: 13.106267623529588
+distortion [dB] for 8-th file: 11.889029596525049
+distortion [dB] for 9-th file: 12.461655917823302
+distortion [dB] for 10-th file: 12.239389463080347
+distortion [dB] for 11-th file: 13.811757590797702
+distortion [dB] for 12-th file: 13.490724005768898
+distortion [dB] for 13-th file: 12.579611504983225
+distortion [dB] for 14-th file: 13.644367056041524
+distortion [dB] for 15-th file: 12.837328720253995
+distortion [dB] for 16-th file: 11.1391982535181
+distortion [dB] for 17-th file: 12.064063728114668
+distortion [dB] for 18-th file: 12.656743918050926
+distortion [dB] for 19-th file: 13.972520434694626
+distortion [dB] for 20-th file: 11.954601612479689
+distortion [dB] for 21-th file: 12.455728329852066
+distortion [dB] for 22-th file: 11.679778585254281
+distortion [dB] for 23-th file: 11.566982961380603
+distortion [dB] for 24-th file: 12.276120557403601
+distortion [dB] for 25-th file: 11.920311063233262
+distortion [dB] for 26-th file: 12.034858363666634
+distortion [dB] for 27-th file: 12.365488945384342
+distortion [dB] for 28-th file: 12.405444947059573
+distortion [dB] for 29-th file: 11.531416463264248
+distortion [dB] for 30-th file: 11.178491571258162
+distortion [dB] for 31-th file: 11.26260305866852
+distortion [dB] for 32-th file: 11.919503732958322
+distortion [dB] for 33-th file: 11.182530006610362
+distortion [dB] for 34-th file: 11.50921028798234
+distortion [dB] for 35-th file: 11.871730620939434
+distortion [dB] for 36-th file: 11.87883298533295/home/okada/.pyenv/versions/anaconda3-5.0.0/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+
+distortion [dB] for 37-th file: 11.044718490250538
+distortion [dB] for 38-th file: 11.0541278716958
+distortion [dB] for 39-th file: 12.423133093465296
+distortion [dB] for 40-th file: 11.803846660955925
+2-th joint feature extraction starts.
+distortion [dB] for 1-th file: 2.9101569175585986
+distortion [dB] for 2-th file: 3.0754712847436405
+distortion [dB] for 3-th file: 2.9336426109212983
+distortion [dB] for 4-th file: 2.819560648663338
+distortion [dB] for 5-th file: 3.1111428787723616
+distortion [dB] for 6-th file: 2.9042323630924103
+distortion [dB] for 7-th file: 3.07150429424744
+distortion [dB] for 8-th file: 2.799430283221256
+distortion [dB] for 9-th file: 3.2471665543297874
+distortion [dB] for 10-th file: 3.1273912026350494
+distortion [dB] for 11-th file: 3.4322194494647142
+distortion [dB] for 12-th file: 3.3053875485872637
+distortion [dB] for 13-th file: 3.3352658779143254
+distortion [dB] for 14-th file: 3.3725791931114633
+distortion [dB] for 15-th file: 3.204565735055312
+distortion [dB] for 16-th file: 3.404091679813101
+distortion [dB] for 17-th file: 3.2631824454026686
+distortion [dB] for 18-th file: 3.1485962237553413
+distortion [dB] for 19-th file: 3.5395354244934096
+distortion [dB] for 20-th file: 3.1702760040328233
+distortion [dB] for 21-th file: 3.132148612668901
+distortion [dB] for 22-th file: 3.0347362390389447
+distortion [dB] for 23-th file: 3.6903941654547445
+distortion [dB] for 24-th file: 3.454381929726796
+distortion [dB] for 25-th file: 2.915741282458239
+distortion [dB] for 26-th file: 3.1949964968520046
+distortion [dB] for 27-th file: 3.3267167632596504
+distortion [dB] for 28-th file: 3.0570224312535084
+distortion [dB] for 29-th file: 3.4509248347799426
+distortion [dB] for 30-th file: 3.264227518478528
+distortion [dB] for 31-th file: 3.070335500894453
+distortion [dB] for 32-th file: 2.8654236023663167
+distortion [dB] for 33-th file: 3.1043179828563536
+distortion [dB] for 34-th file: 2.8650875687244324
+distortion [dB] for 35-th file: 3.1393195239453933
+distortion [dB] for 36-th file: 3.1410462171181996
+distortion [dB] for 37-th file: 3.403811518000893
+distortion [dB] for 38-th file: 3.2107180370862114
+distortion [dB] for 39-th file: 3.0751573403315287
+distortion [dB] for 40-th file: 3.0086433294059227
+3-th joint feature extraction starts.
+distortion [dB] for 1-th file: 2.8055190406999104
+distortion [dB] for 2-th file: 3.046142615995203
+distortion [dB] for 3-th file: 2.823843886565321
+distortion [dB] for 4-th file: 2.7407759959384204
+distortion [dB] for 5-th file: 3.066599703260758
+distortion [dB] for 6-th file: 2.831735826053921
+distortion [dB] for 7-th file: 3.0188902817563528
+distortion [dB] for 8-th file: 2.8198985641195295
+distortion [dB] for 9-th file: 3.098525915894412
+distortion [dB] for 10-th file: 3.1359844270861528
+distortion [dB] for 11-th file: 3.4489635773184832
+distortion [dB] for 12-th file: 3.2270860908637045
+distortion [dB] for 13-th file: 3.3169452491691795
+distortion [dB] for 14-th file: 3.336304503351046
+distortion [dB] for 15-th file: 3.092994550063768
+distortion [dB] for 16-th file: 3.422846270060266
+distortion [dB] for 17-th file: 3.234860405554772
+distortion [dB] for 18-th file: 3.148482552745312
+distortion [dB] for 19-th file: 3.4684630530496627
+distortion [dB] for 20-th file: 3.1000462195452285
+distortion [dB] for 21-th file: 3.091212756361755
+distortion [dB] for 22-th file: 2.9707731178339567
+distortion [dB] for 23-th file: 3.5713153768728763
+distortion [dB] for 24-th file: 3.392458911605348
+distortion [dB] for 25-th file: 2.91414859936883
+distortion [dB] for 26-th file: 3.097636783088655
+distortion [dB] for 27-th file: 3.239110841945183
+distortion [dB] for 28-th file: 3.029758164014144
+distortion [dB] for 29-th file: 3.37804415932984
+distortion [dB] for 30-th file: 3.3328647723907197
+distortion [dB] for 31-th file: 3.057948101594782
+distortion [dB] for 32-th file: 2.835081514997339
+distortion [dB] for 33-th file: 3.0505706835444903
+distortion [dB] for 34-th file: 2.8902025931207262
+distortion [dB] for 35-th file: 3.1389266951280006
+distortion [dB] for 36-th file: 3.0481264772225263
+distortion [dB] for 37-th file: 3.3557007719106706
+distortion [dB] for 38-th file: 3.151137654492939
+distortion [dB] for 39-th file: 2.988189045416219
+distortion [dB] for 40-th file: 2.9711783584097753
+## Alignment codeap into target length using given twf ##
+### 4. Train GMM and converted GV ###
+Conversion model for mcep save into data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/model/GMM_mcep.pkl
+Conversion model for codeap save into data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/model/GMM_codeap.pkl
+Converted gvstats save into data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/model/cvgv.h5
+### 5. Conversion based on the trained models ###
+GMM for mcep conversion mode: diff
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0041_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0042_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0043_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0044_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0045_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0046_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0047_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0048_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0049_AIR_DIFFVC.wav
+data/pair/otake_ATRsetA_AIR-otake_ATRsetA_NAM/test/otake_ATRsetA_AIR/0050_AIR_DIFFVC.wav

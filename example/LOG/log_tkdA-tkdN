@@ -1,0 +1,272 @@
+### 1. Extract acoustic features ###
+source
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0001_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0002_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0003_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0004_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0005_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0006_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0007_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0008_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0009_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0010_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0011_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0012_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0013_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0014_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0015_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0016_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0017_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0018_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0019_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0020_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0021_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0022_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0023_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0024_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0025_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0026_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0027_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0028_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0029_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0030_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0031_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0032_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0033_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0034_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0035_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0036_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0037_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0038_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0039_AIR.wav
+Extract acoustic features: data/wav/takada_ATRsetA_AIR/0040_AIR.wav
+target
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0001_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0002_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0003_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0004_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0005_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0006_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0007_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0008_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0009_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0010_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0011_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0012_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0013_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0014_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0015_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0016_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0017_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0018_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0019_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0020_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0021_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0022_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0023_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0024_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0025_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0026_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0027_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0028_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0029_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0030_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0031_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0032_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0033_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0034_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0035_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0036_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0037_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0038_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0039_NAM.wav
+excahge f0
+Extract acoustic features: data/wav/takada_ATRsetA_NAM/0040_NAM.wav
+excahge f0
+### 2. Estimate acoustic feature statistics ###
+f0stats save into data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/stats/takada_ATRsetA_AIR.h5
+gvstats save into data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/stats/takada_ATRsetA_AIR.h5
+f0stats save into data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/stats/takada_ATRsetA_NAM.h5
+gvstats save into data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/stats/takada_ATRsetA_NAM.h5
+### 3. Estimate time warping function and jnt ###
+## Alignment mcep w/o 0-th and silence ##
+1-th joint feature extraction starts.
+distortion [dB] for 1-th file: 10.91263963006311
+distortion [dB] for 2-th file: 12.097897775024945
+distortion [dB] for 3-th file: 11.167434086886457
+distortion [dB] for 4-th file: 11.480530794939549
+distortion [dB] for 5-th file: 11.886032865853187
+distortion [dB] for 6-th file: 11.007712371733879
+distortion [dB] for 7-th file: 11.652136035667622
+distortion [dB] for 8-th file: 11.075475407693633
+distortion [dB] for 9-th file: 11.446155249719274
+distortion [dB] for 10-th file: 11.110052177749425
+distortion [dB] for 11-th file: 11.557511331417722
+distortion [dB] for 12-th file: 11.115402478528392
+distortion [dB] for 13-th file: 10.83962183022116
+distortion [dB] for 14-th file: 11.192067013592405
+distortion [dB] for 15-th file: 10.798722340338022
+distortion [dB] for 16-th file: 11.133041817313776
+distortion [dB] for 17-th file: 11.022290555715278
+distortion [dB] for 18-th file: 11.368486505601439
+distortion [dB] for 19-th file: 11.722055108586718
+distortion [dB] for 20-th file: 11.256322212168802
+distortion [dB] for 21-th file: 11.354079485707999
+distortion [dB] for 22-th file: 11.30073979912113
+distortion [dB] for 23-th file: 11.570392830849489
+distortion [dB] for 24-th file: 11.685491662989177
+distortion [dB] for 25-th file: 11.114568273444402
+distortion [dB] for 26-th file: 11.329526703585977
+distortion [dB] for 27-th file: 11.131483107722472
+distortion [dB] for 28-th file: 11.302765764843317
+distortion [dB] for 29-th file: 11.046017658503892
+distortion [dB] for 30-th file: 10.85986369008273
+distortion [dB] for 31-th file: 10.665438903333952
+distortion [dB] for 32-th file: 10.511753539105634
+distortion [dB] for 33-th file: 10.8846936215451
+distortion [dB] for 34-th file: 10.84560337402421/home/okada/.pyenv/versions/anaconda3-5.0.0/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+
+distortion [dB] for 35-th file: 10.47974812319444
+distortion [dB] for 36-th file: 11.074359102046165
+distortion [dB] for 37-th file: 10.633462376864063
+distortion [dB] for 38-th file: 11.085289117830902
+distortion [dB] for 39-th file: 10.637589740852585
+distortion [dB] for 40-th file: 10.525222626135688
+2-th joint feature extraction starts.
+distortion [dB] for 1-th file: 4.249260191960532
+distortion [dB] for 2-th file: 4.445322427105966
+distortion [dB] for 3-th file: 4.2564419554760455
+distortion [dB] for 4-th file: 4.192872518566135
+distortion [dB] for 5-th file: 4.089103443114407
+distortion [dB] for 6-th file: 4.059828738824537
+distortion [dB] for 7-th file: 4.292755617980077
+distortion [dB] for 8-th file: 4.272670621318715
+distortion [dB] for 9-th file: 4.286429049271445
+distortion [dB] for 10-th file: 4.017928875004668
+distortion [dB] for 11-th file: 4.2221426376446916
+distortion [dB] for 12-th file: 4.1120502317138135
+distortion [dB] for 13-th file: 4.276807779837641
+distortion [dB] for 14-th file: 4.399330639488056
+distortion [dB] for 15-th file: 4.276953978094219
+distortion [dB] for 16-th file: 4.437238284283979
+distortion [dB] for 17-th file: 4.420319156453383
+distortion [dB] for 18-th file: 4.460009776703883
+distortion [dB] for 19-th file: 4.351805579060776
+distortion [dB] for 20-th file: 4.631224627919653
+distortion [dB] for 21-th file: 4.577890146641718
+distortion [dB] for 22-th file: 4.351220913083483
+distortion [dB] for 23-th file: 4.642864405359074
+distortion [dB] for 24-th file: 4.498372362802437
+distortion [dB] for 25-th file: 4.591858447157774
+distortion [dB] for 26-th file: 4.767044865929749
+distortion [dB] for 27-th file: 4.438526368435579
+distortion [dB] for 28-th file: 4.64955938028145
+distortion [dB] for 29-th file: 4.214964509456384
+distortion [dB] for 30-th file: 4.225330781263224
+distortion [dB] for 31-th file: 4.167538544664409
+distortion [dB] for 32-th file: 4.213872778355123
+distortion [dB] for 33-th file: 3.954258088725389
+distortion [dB] for 34-th file: 4.011661703576161
+distortion [dB] for 35-th file: 4.121713813973074
+distortion [dB] for 36-th file: 4.32214317764544
+distortion [dB] for 37-th file: 4.431881368302226
+distortion [dB] for 38-th file: 4.019176350175327
+distortion [dB] for 39-th file: 4.159409108215853
+distortion [dB] for 40-th file: 4.0030832168728505
+3-th joint feature extraction starts.
+distortion [dB] for 1-th file: 4.215785062773043
+distortion [dB] for 2-th file: 4.43100855661768
+distortion [dB] for 3-th file: 4.22040471147252
+distortion [dB] for 4-th file: 4.196771541712404
+distortion [dB] for 5-th file: 4.093255023088977
+distortion [dB] for 6-th file: 4.041860796400202
+distortion [dB] for 7-th file: 4.258459196098928
+distortion [dB] for 8-th file: 4.21091148835165
+distortion [dB] for 9-th file: 4.2119136558436905
+distortion [dB] for 10-th file: 3.964725391214271
+distortion [dB] for 11-th file: 4.214882031232533
+distortion [dB] for 12-th file: 4.096779874390194
+distortion [dB] for 13-th file: 4.268329376198044
+distortion [dB] for 14-th file: 4.376890699487986
+distortion [dB] for 15-th file: 4.250757529848146
+distortion [dB] for 16-th file: 4.3973984470376255
+distortion [dB] for 17-th file: 4.401542123299271
+distortion [dB] for 18-th file: 4.475945129757219
+distortion [dB] for 19-th file: 4.29680170800431
+distortion [dB] for 20-th file: 4.582226873238824
+distortion [dB] for 21-th file: 4.550486336404265
+distortion [dB] for 22-th file: 4.284427900233192
+distortion [dB] for 23-th file: 4.579151962817898
+distortion [dB] for 24-th file: 4.469719710894317
+distortion [dB] for 25-th file: 4.5435221730136215
+distortion [dB] for 26-th file: 4.707221935247733
+distortion [dB] for 27-th file: 4.381937055407537
+distortion [dB] for 28-th file: 4.582564384827705
+distortion [dB] for 29-th file: 4.182345049916367
+distortion [dB] for 30-th file: 4.224703136422978
+distortion [dB] for 31-th file: 4.161978874858831
+distortion [dB] for 32-th file: 4.175456062900887
+distortion [dB] for 33-th file: 3.947248872262195
+distortion [dB] for 34-th file: 3.967820516196974
+distortion [dB] for 35-th file: 4.094208045309058
+distortion [dB] for 36-th file: 4.314582679728829
+distortion [dB] for 37-th file: 4.390073693488981
+distortion [dB] for 38-th file: 3.9987461290927246
+distortion [dB] for 39-th file: 4.174886160658864
+distortion [dB] for 40-th file: 3.9850558639186975
+## Alignment codeap into target length using given twf ##
+### 4. Train GMM and converted GV ###
+Conversion model for mcep save into data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/model/GMM_mcep.pkl
+Conversion model for codeap save into data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/model/GMM_codeap.pkl
+Converted gvstats save into data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/model/cvgv.h5
+### 5. Conversion based on the trained models ###
+GMM for mcep conversion mode: diff
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0041_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0042_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0043_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0044_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0045_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0046_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0047_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0048_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0049_AIR_DIFFVC.wav
+data/pair/takada_ATRsetA_AIR-takada_ATRsetA_NAM/test/takada_ATRsetA_AIR/0050_AIR_DIFFVC.wav
