@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pyworld
-
+import numpy as np
 
 class WORLD(object):
     """WORLD-based speech analyzer
@@ -32,6 +32,9 @@ class WORLD(object):
         self.minf0 = minf0
         self.maxf0 = maxf0
 
+    def cal_rmse(self, pre, tar):
+        return np.sqrt(((pre - tar) ** 2).mean())
+
     def analyze(self, x, in_f0=1):
         """Analyze acoustic features based on WORLD
 
@@ -54,12 +57,25 @@ class WORLD(object):
         """
         f0, time_axis = pyworld.harvest(x, self.fs, f0_floor=self.minf0,
                                         f0_ceil=self.maxf0, frame_period=self.shiftms)
-        if type(in_f0) != int: 
-            print("excahge f0")
+        f0_tmp = f0
+        if in_f0 is not None:
+            print("exchange f0")
+            assert len(f0) == len(in_f0)
             f0 = in_f0
         spc = pyworld.cheaptrick(x, f0, time_axis, self.fs,
                                  fft_size=self.fftl)
+        spc_tmp = pyworld.cheaptrick(x, f0_tmp, time_axis, self.fs,
+                                 fft_size=self.fftl)
         ap = pyworld.d4c(x, f0, time_axis, self.fs, fft_size=self.fftl)
+        ap_tmp = pyworld.d4c(x, f0_tmp, time_axis, self.fs, fft_size=self.fftl)
+
+        # for check RMSE
+        rmse_f0 = self.cal_rmse(f0_tmp, f0)
+        print('f0 RMSE : ', rmse_f0)
+        rmse_spc = self.cal_rmse(spc_tmp, spc)
+        print('spc RMSE : ', rmse_spc)
+        rmse_ap = self.cal_rmse(ap_tmp, ap)
+        print('ap RMSE : ', rmse_ap)
 
         assert spc.shape == ap.shape
         return f0, spc, ap
