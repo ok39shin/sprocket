@@ -123,10 +123,10 @@ if __name__ == "__main__":
         for speaker_part, speaker_label in LABELS.items():
             if speaker_part == "source":
                 print('source')
-#               extract_features.main(
-#                   speaker_label, str(SPEAKER_CONF_FILES[speaker_part]),
-#                   str(LIST_FILES[speaker_part]['train']),
-#                   str(WAV_DIR), str(PAIR_DIR))
+                extract_features.main(
+                    speaker_label, str(SPEAKER_CONF_FILES[speaker_part]),
+                    str(LIST_FILES[speaker_part]['train']),
+                    str(WAV_DIR), str(PAIR_DIR))
             elif speaker_part == "target":
                 print('target')
                 extract_features2.main(
