@@ -80,7 +80,7 @@ def main(*argv):
                 h5_f0 = HDF5(h5f_f0, mode='r')
                 in_f0 = h5_f0.read(ext='f0')
                 # analyze F0, spc, and ap
-                f0, spc, ap = feat.analyze(x,in_f0)
+                f0, spc, ap = feat.analyze(x, in_f0)
                 mcep = feat.mcep(dim=sconf.mcep_dim, alpha=sconf.mcep_alpha)
                 npow = feat.npow()
                 codeap = feat.codeap()

@@ -64,7 +64,7 @@ class FeatureExtractor(object):
         self._spc = None
         self._ap = None
 
-    def analyze(self, x, in_f0=1):
+    def analyze(self, x, in_f0=None):
         """Analyze acoustic features using analyzer
 
         Parameters
