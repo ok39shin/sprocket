@@ -386,3 +386,6 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+# LOG
+/example/LOG
