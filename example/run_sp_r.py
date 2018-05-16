@@ -2,7 +2,7 @@
 
 """An example script to run sprocket.
 
-Usage: run_sprocket.py [-h] [-1] [-2] [-3] [-4] [-5] SOURCE TARGET
+Usage: run_sp_r.py [-h] [-1] [-2] [-3] [-4] [-5] SOURCE TARGET R
 
 Options:
     -h, --help   Show the help
@@ -14,7 +14,7 @@ Options:
     SOURCE         The name of speaker
                    whose voice you would like to convert from
     TARGET         The name of speaker whose voice you would like to convert to
-
+    R              Mixing Ratio of diffmcep 
 Note:
     All steps are executed if no options from -1 to -5 are given.
 """
@@ -26,8 +26,8 @@ from pathlib import Path
 import docopt
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))  # isort:skip
-from src import (convert_cp, estimate_feature_statistics, estimate_twf_and_jnt,  # isort:skip # pylint: disable=C0413
-                 extract_features, extract_features2,  train_GMM)
+from src import (convert_r, estimate_feature_statistics, estimate_twf_and_jnt,  # isort:skip # pylint: disable=C0413
+                 extract_features, extract_features2, train_GMM)
 
 
 def list_lengths_are_all_same(first_path, *remain_paths):
@@ -83,7 +83,7 @@ WAV_DIR = DATA_DIR / "wav"
 
 if __name__ == "__main__":
     args = docopt.docopt(__doc__)  # pylint: disable=invalid-name
-
+    RATIO = args["r".upper()]
     LABELS = {label: args[label.upper()] for label in ("source", "target")}
     SOURCE_TARGET_PAIR = LABELS["source"] + "-" + LABELS["target"]
     PAIR_DIR = DATA_DIR / "pair" / SOURCE_TARGET_PAIR
@@ -171,11 +171,13 @@ if __name__ == "__main__":
         #    str(EVAL_LIST_FILE),
         #    str(WAV_DIR),
         #    str(PAIR_DIR))
-        convert_cp.main(
+        convert_r.main(
             "-gmmmode", "diff",
             LABELS["source"], LABELS["target"],
             str(SPEAKER_CONF_FILES["source"]),
             str(PAIR_CONF_FILE),
             str(EVAL_LIST_FILE),
             str(WAV_DIR),
-            str(PAIR_DIR))
+            str(PAIR_DIR),
+            RATIO)
+

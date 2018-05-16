@@ -23,6 +23,7 @@ from .yml import PairYML, SpeakerYML
 
 
 def main(*argv):
+    print('convert_r.py')
     argv = argv if argv else sys.argv[1:]
     # Options for python
     description = 'estimate joint feature of source and target speakers'
@@ -43,8 +44,10 @@ def main(*argv):
                         help='Directory path of source spekaer')
     parser.add_argument('pair_dir', type=str,
                         help='Directory path of pair directory')
+    parser.add_argument('r', type=int,
+                        help='Mixing Ratio 0-100')
     args = parser.parse_args(argv)
-
+    ratio = args.r
     # read parameters from speaker yml
     sconf = SpeakerYML(args.org_yml)
     pconf = PairYML(args.pair_yml)
@@ -147,16 +150,14 @@ def main(*argv):
                                                cvgvstats=diffcvgvstats,
                                                alpha=pconf.GV_morph_coeff,
                                                startdim=1) - mcep
-                # if f0[n] == 0: mcep[n,:] = 0
-                for n in range(f0.shape[0]):
-                    if f0[n] == 0:
-                        cvmcep_wGV[n,:] = 0
+                print(ratio)
+                cvmcep_wGV = cvmcep_wGV * ratio / 100
                 wav = synthesizer.synthesis_diff(x,
                                                  cvmcep_wGV,
                                                  rmcep=mcep,
                                                  alpha=sconf.mcep_alpha,
                                                  )
-                wavpath = os.path.join(test_dir, f + '_DIFFVC.wav')
+                wavpath = os.path.join(test_dir, f + '_' + str(ratio) + '_DIFFVC.wav')
 
             # write waveform
             wav = np.clip(wav, -32768, 32767)
