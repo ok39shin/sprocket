@@ -389,3 +389,5 @@ FakesAssemblies/
 
 # LOG
 /example/LOG
+/example/sample
+/example/*.zip
