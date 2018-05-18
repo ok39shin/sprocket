@@ -49,13 +49,13 @@ def feature_conversion(pconf, org_mceps, gmm, gmmmode=None):
                          )
     cvgmm.open_from_param(gmm.param)
 
-    sd = 1  # start dimension to convert
+    sd = 0  # start dimension to convert
     cv_mceps = []
     for mcep in org_mceps:
-        mcep_0th = mcep[:, 0]
+        # mcep_0th = mcep[:, 0]
         cvmcep = cvgmm.convert(static_delta(mcep[:, sd:]),
                                cvtype=pconf.GMM_mcep_cvtype)
-        cvmcep = np.c_[mcep_0th, cvmcep]
+        # cvmcep = np.c_[mcep_0th, cvmcep]
         if gmmmode == 'diff':
             cvmcep[:, sd:] += mcep[:, sd:]
         elif gmmmode is not None:

@@ -144,17 +144,15 @@ def main(*argv):
 
             # synthesis DIFFVC w/ GV
             if args.gmmmode == 'diff':
-                cvmcep[:, 0] = 0.0
+                # cvmcep[:, 0] = 0.0
                 cvmcep_wGV = mcepgv.postfilter(mcep + cvmcep,
                                                targvstats,
                                                cvgvstats=diffcvgvstats,
                                                alpha=pconf.GV_morph_coeff,
-                                               startdim=1) - mcep
-                print(ratio)
+                                               startdim=0) - mcep
                 cvmcep_wGV = cvmcep_wGV * ratio / 100
                 wav = synthesizer.synthesis_diff(x,
                                                  cvmcep_wGV,
-                                                 rmcep=mcep,
                                                  alpha=sconf.mcep_alpha,
                                                  )
                 wavpath = os.path.join(test_dir, f + '_' + str(ratio) + '_DIFFVC.wav')
