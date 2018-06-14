@@ -1,0 +1,43 @@
+# env
+python3
+
+# get sprocket
+git clone <sprocket URL>
+
+# make env
+pip install numpy
+pip install -r requirements.txt
+
+# install sprocket
+python setup.py install(develop)
+
+### COMPLETE INSTALL SPROCKET ###
+
+# prepare
+cd example
+python download_vcc2016dataset.py / put wavdir to data/wav
+(soxi -r data/wav/*/*.wav)
+
+# run initialize.py
+python initialize.py -1 <src> <tar> <sampling rate>
+edit list/*_eval.list and *_train.list for train and eval num
+
+python initialize.py -2 <src> <tar> <sampling rate>
+
+python initialize.py -3 <src> <tar> <sampling rate>
+check conf/figure/*_f0histgram.png
+edit minf0 and maxf0 of conf/speaker/*.yml
+
+### COMPLETE INITIALIZE ###
+
+# run_sprocket.py
+python run_sprocket.py -1 -2 -3 -4 -5 <src> <tar> &> log &
+
+### COMPLETE RUN_SPROCKET ###
+
+ ##   ##  #   # ###  #    #### ##### ####   
+#  # #  # ## ## #  # #    #      #   #
+#    #  # # # # ###  #    ###    #   ###
+#  # #  # #   # #    #    #      #   #
+ ##   ##  #   # #    #### ####   #   ####
+

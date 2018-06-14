@@ -5,6 +5,7 @@
 /example/conf/figure
 /example/conf/pair
 /example/conf/speaker
+/example/log*
 
 # data files
 /example/data/pair
@@ -386,3 +387,9 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+#nvidia file?
+@eaDir
+/example/@eaDir
+/example/conf/@eaDir
+
