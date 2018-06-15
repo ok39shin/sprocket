@@ -24,6 +24,8 @@ from .yml import PairYML, SpeakerYML
 import torch
 from torch import nn
 
+use_cuda = torch.cuda.is_available()
+
 def main(*argv):
     argv = argv if argv else sys.argv[1:]
     # Options for python
@@ -63,11 +65,12 @@ def main(*argv):
     # read NN for mcep
     mdl_path = os.path.join('my_model', 'first_NN.mdl')
     model = nn.sequential()
-    model.add_module('fc1', nn.linear(48, 24))
+    model.add_module('fc1', nn.linear(24, 12))
     model.add_module('relu', nn.relu())
-    model.add_module('fc2', nn.linear(24, 48))
+    model.add_module('fc2', nn.linear(12, 24))
     model.load_state_dict(torch.load(mdl_path))
-
+    if use_cuda:
+        model = model.cuda()
 
     # read F0 statistics
     stats_dir = os.path.join(args.pair_dir, 'stats')
@@ -124,45 +127,46 @@ def main(*argv):
             # analyze F0, mcep, and ap
             f0, spc, ap = feat.analyze(x)
             mcep = feat.mcep(dim=sconf.mcep_dim, alpha=sconf.mcep_alpha)
-            mcep_0th = mcep[:, 0]
+            # mcep_0th = mcep[:, 0]
 
             # convert F0
             cvf0 = f0stats.convert(f0, orgf0stats, tarf0stats)
 
             # convert mcep
-            cvmcep_wopow = mcepgmm.convert(static_delta(mcep[:, 1:]),
-                                           cvtype=pconf.GMM_mcep_cvtype)
-            cvmcep = np.c_[mcep_0th, cvmcep_wopow]
+            # cvmcep_wopow = mcepgmm.convert(static_delta(mcep[:, 1:]),
+            #                               cvtype=pconf.GMM_mcep_cvtype)
+            # cvmcep = np.c_[mcep_0th, cvmcep_wopow]
+            cvmcep = modelmcep)
 
             # synthesis VC w/ GV
             if args.gmmmode is None:
-                cvmcep_wGV = mcepgv.postfilter(cvmcep,
-                                               targvstats,
-                                               cvgvstats=cvgvstats,
-                                               alpha=pconf.GV_morph_coeff,
-                                               startdim=1)
+                # cvmcep_wGV = mcepgv.postfilter(cvmcep,
+                #                                targvstats,
+                #                                cvgvstats=cvgvstats,
+                #                                alpha=pconf.GV_morph_coeff,
+                #                                startdim=1)
                 wav = synthesizer.synthesis(cvf0,
-                                            cvmcep_wGV,
+                                            cvmcep,
                                             ap,
                                             rmcep=mcep,
                                             alpha=sconf.mcep_alpha,
                                             )
-                wavpath = os.path.join(test_dir, f + '_VC.wav')
+                wavpath = os.path.join(test_dir, f + '_GAN_VC.wav')
 
             # synthesis DIFFVC w/ GV
             if args.gmmmode == 'diff':
                 cvmcep[:, 0] = 0.0
-                cvmcep_wGV = mcepgv.postfilter(mcep + cvmcep,
-                                               targvstats,
-                                               cvgvstats=diffcvgvstats,
-                                               alpha=pconf.GV_morph_coeff,
-                                               startdim=1) - mcep
+                # cvmcep_wGV = mcepgv.postfilter(mcep + cvmcep,
+                #                                targvstats,
+                #                                cvgvstats=diffcvgvstats,
+                #                                alpha=pconf.GV_morph_coeff,
+                #                                startdim=1) - mcep
                 wav = synthesizer.synthesis_diff(x,
-                                                 cvmcep_wGV,
+                                                 cvmcep,
                                                  rmcep=mcep,
                                                  alpha=sconf.mcep_alpha,
                                                  )
-                wavpath = os.path.join(test_dir, f + '_DIFFVC.wav')
+                wavpath = os.path.join(test_dir, f + '_GAN_DIFFVC.wav')
 
             # write waveform
             wav = np.clip(wav, -32768, 32767)

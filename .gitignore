@@ -393,3 +393,4 @@ FakesAssemblies/
 /example/@eaDir
 /example/conf/@eaDir
 /example/*.png
+/example/my_model

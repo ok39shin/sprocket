@@ -12,18 +12,20 @@ use_cuda = torch.cuda.is_available()
 # read joint feature vector
 jntf = os.path.join('data/pair/SF1-TF1', 'jnt',
                     'it' + '3' + '_jnt.h5')
-h5f = os.path.join('data/pair/SF1-TF1', 'h5',
-                    'SF1', '200038.h5')
 #jntf = os.path.join(args.pair_dir, 'jnt',
 #                    'it' + str(pconf.jnt_n_iter) + '_jnt.h5')
 jnth5 = HDF5(jntf, mode='r')
 jnt = jnth5.read(ext='mcep')
 print('jnt.shape : ',jnt.shape)
-jnt_src = jnt[:,:jnt.shape[1]//2]
-jnt_tar = jnt[:,jnt.shape[1]//2:]
+jntD1 = jnt.shape[1]
+jnt_src = jnt[:,:jntD1//4] # src static
+# jnt_src_delta = jnt[:,jntD1//4:jntD1//4*2] src delta
+jnt_tar = jnt[:,jntD1//4*2:jntD1//4*3] # tar static
+# jnt_tar_delta = jnt[jntD1//4*3:] tar delta
 print(jnt_src.shape)
 print(jnt_tar.shape)
 print(type(jnt_src))
+# sys.exit(1)
 
 ### make Dataloder ###
 from sklearn.model_selection import train_test_split
@@ -70,9 +72,9 @@ from torch import nn
 
 # Define and Run (like Keras)
 model = nn.Sequential()
-model.add_module('fc1', nn.Linear(48, 24))
+model.add_module('fc1', nn.Linear(24, 12))
 model.add_module('relu', nn.ReLU())
-model.add_module('fc2', nn.Linear(24, 48))
+model.add_module('fc2', nn.Linear(12, 24))
 if use_cuda:
     model = model.cuda()
 print(model)
