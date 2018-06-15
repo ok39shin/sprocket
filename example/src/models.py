@@ -13,10 +13,10 @@ def load_model(mdl_path):
     model.load_state_dict(torch.load(mdl_path))
     return model
 
-class SimpleNN(nn.module):
+class SimpleNN(nn.Module):
     " Most Simple Neural Network Model "
     def __init__(self):
-        super(Net, self).__init__()
+        super(SimpleNN, self).__init__()
         self.fc1 = nn.Linear(24, 12)
         self.fc2 = nn.Linear(12, 24)
 
