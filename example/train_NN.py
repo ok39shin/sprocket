@@ -20,6 +20,10 @@ from src import models
 from torch import nn
 from torch import optim 
 
+# for training
+from torch.autograd import Variable
+import numpy as np
+
 use_cuda = torch.cuda.is_available() # flag of using cuda 
 
 def load_data(pair_dir):
@@ -104,7 +108,7 @@ def load_Model():
     model = models.SimpleNN()
     if use_cuda:
         model = model.cuda()
-    print(model)
+    # print(model)
     return model
 
 def set_LossFandOptimF(model):
@@ -122,10 +126,10 @@ def set_LossFandOptimF(model):
     optimizer = optim.Adam(model.parameters(), lr=0.01) # lr = study rate
     return criterion, optimizer
 
-from torch.autograd import Variable
 
 # setting of Training
-def train(model, criterion, optimizer, loader_train, epoch):
+def train(model, criterion, optimizer, 
+          loader_train, loader_dev, total_epoch):
     """ 
     settings of Training and Generation 
     
@@ -139,17 +143,39 @@ def train(model, criterion, optimizer, loader_train, epoch):
     output  : loss  -> loss of loss function
     
     """
-    model.train() # change mode to Train
-    for src, tar in loader_train:
-        src, tar = Variable(src), Variable(tar) # enable to bibun
-        optimizer.zero_grad()   # reset result of cal grad
-        estm_tar = model(src)   # src into model and get estimated tar
-        loss = criterion(estm_tar, tar)
-        loss.backward()         # cal back propagation of loss
-        optimizer.step()        # update parameter
-    print("epoch{}: finish\n".format(epoch))
-    return loss
-
+    savef = os.path.join('my_model', 'second_NN.mdl')
+    minloss = 1.0
+    for epoch in range(total_epoch):
+        model.train() # change mode to Train
+        # train
+        trloss = []
+        for src, tar in loader_train:
+            src, tar = Variable(src), Variable(tar) # enable to bibun
+            optimizer.zero_grad()   # reset result of cal grad
+            estm_tar = model(src)   # src into model and get estimated tar
+            loss = criterion(estm_tar, tar)
+            loss.backward()         # cal back propagation of loss
+            optimizer.step()        # update parameter
+            trloss.append(loss.item())
+        
+        model.eval() # change mode to Eval
+        # cal loss of dev data
+        devloss = []
+        for src, tar in loader_dev:
+            src, tar = Variable(src), Variable(tar) # enable to bibun
+            optimizer.zero_grad()   # reset result of cal grad
+            estm_tar = model(src)   # src into model and get estimated tar
+            loss = criterion(estm_tar, tar)
+            devloss.append(loss.item())
+    
+        print('epoch [%d/%d] Finish, TrLoss: %.5f, DevLoss: %.5f' %
+                (epoch, total_epoch, np.mean(trloss), np.mean(devloss)))
+        
+        # save model if devloss to be smaller
+        if minloss > np.mean(devloss):
+            minloss = np.mean(devloss)
+            torch.save(model.state_dict(), savef)
+    
 ### run Training and Save model ###
 def main():
     pair_dir = 'data/pair/SF1-TF1'
@@ -159,17 +185,15 @@ def main():
     # get data loader
     loader_train, loader_dev = make_DataLoader(src_mcep, tar_mcep)
     # get model
-    model = load_Model()
+    model = models.SimpleNN()
+    if use_cuda:
+        model = model.cuda()
     # get loss and optimize function
     criterion, optimizer = set_LossFandOptimF(model)
     # train
-    for epoch in range(total_epoch):
-        loss = train(model, criterion, optimizer, loader_train, epoch)
-        print('loss: ', loss)
+    train(model, criterion, optimizer, 
+          loader_train, loader_dev, total_epoch)
     print('Complete Training!')
-    savef = os.path.join('my_model', 'first_NN.mdl')
-    torch.save(model.state_dict(), savef)
-    print('model save to :', savef)
 
 if __name__ == '__main__':
     main()

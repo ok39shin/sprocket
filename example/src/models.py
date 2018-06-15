@@ -15,10 +15,14 @@ def load_model(mdl_path):
 
 class SimpleNN(nn.Module):
     " Most Simple Neural Network Model "
-    def __init__(self):
+    def __init__(self, gpu=True):
         super(SimpleNN, self).__init__()
         self.fc1 = nn.Linear(24, 12)
         self.fc2 = nn.Linear(12, 24)
+#        if gpu:
+#            self.dtype = torch.cuda.FloatTensor
+#        else:
+#            self.dtype = torch.FloatTensor
 
     def forward(self, x):
         x = self.fc1(x)
