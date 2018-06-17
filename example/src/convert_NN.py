@@ -26,6 +26,8 @@ from torch import nn
 from torch.utils.data import TensorDataset, DataLoader
 from torch.autograd import Variable
 
+import models
+
 use_cuda = torch.cuda.is_available()
 
 def main(*argv):
@@ -55,25 +57,13 @@ def main(*argv):
     sconf = SpeakerYML(args.org_yml)
     pconf = PairYML(args.pair_yml)
 
-    # read GMM for mcep
-    mcepgmmpath = os.path.join(args.pair_dir, 'model/GMM_mcep.pkl')
-    mcepgmm = GMMConvertor(n_mix=pconf.GMM_mcep_n_mix,
-                           covtype=pconf.GMM_mcep_covtype,
-                           gmmmode=args.gmmmode,
-                           )
-    param = joblib.load(mcepgmmpath)
-    mcepgmm.open_from_param(param)
-    print("GMM for mcep conversion mode: {}".format(args.gmmmode))
     # read NN for mcep
-    mdl_path = os.path.join('my_model', 'first_NN.mdl')
-    model = nn.Sequential()
-    model.add_module('fc1', nn.Linear(24, 12))
-    model.add_module('relu', nn.ReLU())
-    model.add_module('fc2', nn.Linear(12, 24))
+    model = models.SimpleNN() # Simple NN model
+    mdl_path = os.path.join('my_model', 'second_NN.mdl')
     model.load_state_dict(torch.load(mdl_path))
     if use_cuda:
         model = model.cuda()
-    model.eval()
+    model.eval() # not need
 
     # read F0 statistics
     stats_dir = os.path.join(args.pair_dir, 'stats')
@@ -86,17 +76,8 @@ def main(*argv):
     tarstatspath = os.path.join(stats_dir,  args.tar + '.h5')
     tarstats_h5 = HDF5(tarstatspath, mode='r')
     tarf0stats = tarstats_h5.read(ext='f0stats')
-    targvstats = tarstats_h5.read(ext='gv')
     tarstats_h5.close()
 
-    # read GV statistics for converted mcep
-    cvgvstatspath = os.path.join(args.pair_dir, 'model', 'cvgv.h5')
-    cvgvstats_h5 = HDF5(cvgvstatspath, mode='r')
-    cvgvstats = cvgvstats_h5.read(ext='cvgv')
-    diffcvgvstats = cvgvstats_h5.read(ext='diffcvgv')
-    cvgvstats_h5.close()
-
-    mcepgv = GV()
     f0stats = F0statistics()
 
     # constract FeatureExtractor class
@@ -128,45 +109,31 @@ def main(*argv):
             assert fs == sconf.wav_fs
 
             # analyze F0, mcep, and ap
-            f0, spc, ap = feat.analyze(x)
+            f0, _, ap = feat.analyze(x)
             mcep = feat.mcep(dim=sconf.mcep_dim, alpha=sconf.mcep_alpha)
             mcep_0th = mcep[:, 0] # float64
+
             # convert F0
             cvf0 = f0stats.convert(f0, orgf0stats, tarf0stats)
-
-            # convert mcep
-            # cvmcep_wopow = mcepgmm.convert(static_delta(mcep[:, 1:]),
-            #                               cvtype=pconf.GMM_mcep_cvtype)
-            # cvmcep = np.c_[mcep_0th, cvmcep_wopow]
 
             mcep_Tnsr = torch.Tensor(mcep[:,1:])
             if use_cuda:
                 mcep_Tnsr = mcep_Tnsr.cuda()
-            print(mcep_Tnsr.shape)
-
             mcep_Tnsr = Variable(mcep_Tnsr) # to be bibun kanou
             cvmcep_wopow = model(mcep_Tnsr)
-            print(cvmcep_wopow.shape)
-            print(type(cvmcep_wopow))
             if use_cuda:
                 cvmcep_wopow = cvmcep_wopow.data.cpu().numpy()
             else:
                 cvmcep_wopow = cvmcep_wopow.data.numpy()
             cvmcep_wopow = cvmcep_wopow.astype('float64')
-            print(cvmcep_wopow.shape)
-            print(type(cvmcep_wopow))
-            print(mcep_0th.shape)
-            print(type(mcep_0th))
+
+            # get cvmcep [mcep0th(T, 1), cvmcep_wopow(T, 24)]
             cvmcep = np.insert(cvmcep_wopow, 0, 
                                mcep_0th, 
                                axis=1)
+
            # synthesis VC w/ GV
             if args.gmmmode is None:
-                # cvmcep_wGV = mcepgv.postfilter(cvmcep,
-                #                                targvstats,
-                #                                cvgvstats=cvgvstats,
-                #                                alpha=pconf.GV_morph_coeff,
-                #                                startdim=1)
                 wav = synthesizer.synthesis(cvf0,
                                             cvmcep,
                                             ap,
@@ -176,13 +143,9 @@ def main(*argv):
                 wavpath = os.path.join(test_dir, f + '_GAN_VC.wav')
 
             # synthesis DIFFVC w/ GV
+            # disable
             if args.gmmmode == 'diff':
                 cvmcep[:, 0] = 0.0
-                # cvmcep_wGV = mcepgv.postfilter(mcep + cvmcep,
-                #                                targvstats,
-                #                                cvgvstats=diffcvgvstats,
-                #                                alpha=pconf.GV_morph_coeff,
-                #                                startdim=1) - mcep
                 wav = synthesizer.synthesis_diff(x,
                                                  cvmcep,
                                                  rmcep=mcep,
