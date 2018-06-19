@@ -23,6 +23,7 @@ from torch import optim
 # for training
 from torch.autograd import Variable
 import numpy as np
+import copy
 
 use_cuda = torch.cuda.is_available() # flag of using cuda 
 
@@ -126,72 +127,220 @@ def set_LossFandOptimF(model):
     optimizer = optim.Adam(model.parameters(), lr=0.01) # lr = study rate
     return criterion, optimizer
 
+class model_param():
+    def __init__(self, mdl, crit, optm, steps, mdlf):
+        """
+        input:
+              mdl   -> Network model 
+              crit  -> loss function 
+              optm  -> optimize function 
+              steps -> training steps 
+              mdlf  -> model file 
+        """
+        self.mdl = mdl
+        self.crit = crit
+        self.optm = optm
+        self.steps = steps
+        self.mdlf = mdlf
 
 # setting of Training
-def train(model, criterion, optimizer, 
+def train(g, d,
           loader_train, loader_dev, total_epoch):
     """ 
-    settings of Training and Generation 
+    settings of Training Generator and Discriminator
     
     input   : 
-              model         -> Network model
-              criterion     -> loss function
-              optimizer     -> optimize function
+              g -> G param
+              d -> D param
               loader_train  -> train data set
+              loader_dev    -> develop data set
               epoch         -> number of through all data
 
     output  : loss  -> loss of loss function
     
     """
-    savef = os.path.join('my_model', 'second_NN.mdl')
-    minloss = 1.0
     for epoch in range(total_epoch):
-        model.train() # change mode to Train
-        # train
-        trloss = []
+        print('Epoch [%d/%d]' % (epoch+1, total_epoch))
+        # Train Discriminator
+        train_d(g, d, loader_train, loader_dev)
+        # Train Generator
+        train_g(g, d, loader_train, loader_dev)
+        print()
+
+def train_d(g, d, loader_train, loader_dev):
+    # Training Discriminator on real + fake
+    g.mdl.eval()  # change mode to Eval
+    tr_real_loss_d = []
+    tr_fake_loss_d = []
+    minloss_d = 1.0
+    best_d = copy.copy(d.mdl) # copy now best d
+    for steps in range(d.steps):
+        d.mdl.train() # change mode to Train
+        print('Discriminator [%d/%d]' % (steps, d.steps))
         for src, tar in loader_train:
-            src, tar = Variable(src), Variable(tar) # enable to bibun
-            optimizer.zero_grad()   # reset result of cal grad
-            estm_tar = model(src)   # src into model and get estimated tar
-            loss = criterion(estm_tar, tar)
-            loss.backward()         # cal back propagation of loss
-            optimizer.step()        # update parameter
-            trloss.append(loss.item())
-        
-        model.eval() # change mode to Eval
-        # cal loss of dev data
-        devloss = []
-        for src, tar in loader_dev:
-            src, tar = Variable(src), Variable(tar) # enable to bibun
-            optimizer.zero_grad()   # reset result of cal grad
-            estm_tar = model(src)   # src into model and get estimated tar
-            loss = criterion(estm_tar, tar)
-            devloss.append(loss.item())
+            # prepare for train
+            variable1 = Variable(torch.ones(src.shape[0], 1))  # for train real
+            variable0 = Variable(torch.zeros(src.shape[0], 1)) # for train fake
+            if use_cuda:
+                variable1 = variable1.cuda()
+                variable0 = variable0.cuda()
+            # train on real
+            tar = Variable(tar)             # enable to bibun
+            d.optm.zero_grad()        # reset result of cal grad
+            real_dic_d = d.mdl(tar)   # D estimate real value
+            real_loss_d = d.crit(real_dic_d, variable1) # loss from real
+            real_loss_d.backward()         # cal back propagation of loss
+            tr_real_loss_d.append(real_loss_d.item())
     
-        print('epoch [%d/%d] Finish, TrLoss: %.5f, DevLoss: %.5f' %
-                (epoch, total_epoch, np.mean(trloss), np.mean(devloss)))
+            # train on fake from G
+            src = Variable(src)
+            fake_tar = g.mdl(src)         # fake from G
+            fake_dic_d = d.mdl(fake_tar)  # D estimate fake value
+            fake_loss_d = d.crit(fake_dic_d, variable0) # loss from fake
+            fake_loss_d.backward()
+            tr_fake_loss_d.append(fake_loss_d.item())
+    
+            d.optm.step()      # update param
+        
+        d.mdl.eval()
+        # cal loss of dev data
+        dev_real_loss_d = []
+        dev_fake_loss_d = []
+        for src, tar in loader_dev:
+            # prepare for train
+            variable1 = Variable(torch.ones(src.shape[0], 1))  # for train real
+            variable0 = Variable(torch.zeros(src.shape[0], 1)) # for train fake
+            if use_cuda:
+                variable1 = variable1.cuda()
+                variable0 = variable0.cuda()
+            # cal loss from develop real data
+            tar = Variable(tar)             # enable to bibun
+            d.optm.zero_grad()        # reset result of cal grad
+            real_dic_d = d.mdl(tar)   # D estimate real value
+            real_loss_d = d.crit(real_dic_d, variable1) # loss from real
+            dev_real_loss_d.append(real_loss_d.item())
+    
+            # cal loss from develop fake data from G
+            src = Variable(src)
+            fake_tar = g.mdl(src)         # fake from G
+            fake_dic_d = d.mdl(fake_tar)  # D estimate fake value
+            fake_loss_d = d.crit(fake_dic_d, variable0) # loss from fake
+            dev_fake_loss_d.append(fake_loss_d.item())
+    
+        print('''TrRealLoss: %.5f, TrFakeLoss: %.5f
+DevRealLoss: %.5f, DevFakeLoss: %.5f''' %
+              (np.mean(tr_real_loss_d), np.mean(tr_fake_loss_d),
+               np.mean(dev_real_loss_d), np.mean(dev_fake_loss_d)))
         
         # save model if devloss to be smaller
-        if minloss > np.mean(devloss):
-            minloss = np.mean(devloss)
-            torch.save(model.state_dict(), savef)
+        dev_loss = (np.mean(dev_real_loss_d)+np.mean(dev_fake_loss_d))/2
+        if minloss_d > dev_loss:
+            minloss_d = dev_loss
+            best_d = copy.copy(d.mdl)
+    # forend d.steps
+    d.mdl = best_d
+    torch.save(d.mdl.state_dict(), d.mdlf)
+    print('Save Discriminator: ', d.mdlf)
+
+def train_g(g, d, loader_train, loader_dev):
+    # Training Discriminator on real + fake
+    d.mdl.eval()   # change mode to Eval 
+    minloss_g = 1.0
+    best_g = copy.copy(g.mdl) # copy now best g
+    for steps in range(g.steps):
+        print('Generator [%d/%d]' % (steps, g.steps))
+        g.mdl.train()  # change mode to Train
+        tr_loss_g = []
+        tr_loss_from_d = []
+        for src, tar in loader_train:
+            # prepare for train
+            variable1 = Variable(torch.ones(src.shape[0], 1))  # for train real
+            if use_cuda:
+                variable1 = variable1.cuda()
+            # train G
+            src, tar = Variable(src), Variable(tar)
+            g.mdl.zero_grad()
+            fake_tar = g.mdl(src)
+            loss_g = g.crit(fake_tar, tar) # loss from tar
+            tr_loss_g.append(loss_g.item())
+            loss_g.backward(retain_graph=True)
+
+            fake_dic_d = d.mdl(fake_tar)
+            loss_from_d = g.crit(fake_dic_d, variable1) # loss from D
+            tr_loss_from_d.append(loss_from_d.item())
+            loss_from_d.backward() 
+
+            g.optm.step()
     
+        g.mdl.eval()  # change mode to Train
+        dev_loss_g = []
+        dev_loss_from_d = []
+        for src, tar in loader_dev:
+            # prepare
+            variable1 = Variable(torch.ones(src.shape[0], 1))  # for train real
+            if use_cuda:
+                variable1 = variable1.cuda()
+            # cal loss of dev 
+            src, tar = Variable(src), Variable(tar)
+            fake_tar = g.mdl(src)
+            loss_g = g.crit(fake_tar, tar) # loss from tar
+            dev_loss_g.append(loss_g.item())
+
+            fake_dic_d = d.mdl(fake_tar)
+            loss_from_d = g.crit(fake_dic_d, variable1) # loss from D
+            dev_loss_from_d.append(loss_from_d.item())
+
+        print('''TrLossG: %.5f, TrLossfromD: %.5f
+DevLossG: %.5f, DevLossfromD: %.5f''' %
+              (np.mean(tr_loss_g), np.mean(tr_loss_from_d),
+               np.mean(dev_loss_g), np.mean(dev_loss_from_d)))
+        
+        # save model if devloss to be smaller
+        dev_loss = (np.mean(dev_loss_g)+np.mean(dev_loss_from_d))/2
+        if minloss_g > dev_loss:
+            minloss_g = dev_loss
+            best_g = copy.copy(g.mdl)
+    # forend d.steps
+    g.mdl = best_g
+    torch.save(g.mdl.state_dict(), g.mdlf)
+    print('Save Generator: ', g.mdlf)
+
 ### run Training and Save model ###
 def main():
     pair_dir = 'data/pair/SF1-TF1'
     total_epoch = 20
+    steps_g = 10
+    steps_d = 5
     # load data
     src_mcep, tar_mcep = load_data(pair_dir)
     # get data loader
     loader_train, loader_dev = make_DataLoader(src_mcep, tar_mcep)
-    # get model
-    model = models.SimpleNN()
+    # get Generater model, Discriminater model
+    model_g = models.SimpleGene()
+    model_d = models.SimpleDisc()
     if use_cuda:
-        model = model.cuda()
+        model_g = model_g.cuda()
+        model_d = model_d.cuda()
+
     # get loss and optimize function
-    criterion, optimizer = set_LossFandOptimF(model)
+    criterion_g, optimizer_g = set_LossFandOptimF(model_g)
+    criterion_d, optimizer_d = set_LossFandOptimF(model_d)
+
+    mdlf_g = os.path.join('my_model','gan_g.mdl')
+    mdlf_d = os.path.join('my_model','gan_d.mdl')
+    model_g_param = model_param(model_g,
+                                criterion_g,
+                                optimizer_g,
+                                steps_g,
+                                mdlf_g)
+    model_d_param = model_param(model_d,
+                                criterion_d,
+                                optimizer_d,
+                                steps_d,
+                                mdlf_d)
+
     # train
-    train(model, criterion, optimizer, 
+    train(model_g_param, model_d_param, 
           loader_train, loader_dev, total_epoch)
     print('Complete Training!')
 

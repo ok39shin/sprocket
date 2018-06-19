@@ -15,14 +15,36 @@ def load_model(mdl_path):
 
 class SimpleNN(nn.Module):
     " Most Simple Neural Network Model "
-    def __init__(self, gpu=True):
+    def __init__(self):
         super(SimpleNN, self).__init__()
         self.fc1 = nn.Linear(24, 12)
         self.fc2 = nn.Linear(12, 24)
-#        if gpu:
-#            self.dtype = torch.cuda.FloatTensor
-#        else:
-#            self.dtype = torch.FloatTensor
+
+    def forward(self, x):
+        x = self.fc1(x)
+        x = F.relu(x)
+        x = self.fc2(x)
+        return x
+
+class SimpleGene(nn.Module):
+    " Simple Generator Model "
+    def __init__(self):
+        super(SimpleGene, self).__init__()
+        self.fc1 = nn.Linear(24, 12)
+        self.fc2 = nn.Linear(12, 24)
+
+    def forward(self, x):
+        x = self.fc1(x)
+        x = F.relu(x)
+        x = self.fc2(x)
+        return x
+
+class SimpleDisc(nn.Module):
+    " Simple Discriminator model "
+    def __init__(self):
+        super(SimpleDisc, self).__init__()
+        self.fc1 = nn.Linear(24, 12)
+        self.fc2 = nn.Linear(12, 1)
 
     def forward(self, x):
         x = self.fc1(x)
