@@ -58,12 +58,12 @@ def main(*argv):
     pconf = PairYML(args.pair_yml)
 
     # read NN for mcep
-    model = models.SimpleNN() # Simple NN model
-    mdl_path = os.path.join('my_model', 'second_NN.mdl')
-    model.load_state_dict(torch.load(mdl_path))
+    g = models.SimpleGene() # Simple G model
+    mdl_path = os.path.join('my_model', 'gan_g.mdl')
+    g.load_state_dict(torch.load(mdl_path))
     if use_cuda:
-        model = model.cuda()
-    model.eval() # not need
+        g = g.cuda()
+    g.eval() # not need
 
     # read F0 statistics
     stats_dir = os.path.join(args.pair_dir, 'stats')
@@ -120,7 +120,7 @@ def main(*argv):
             if use_cuda:
                 mcep_Tnsr = mcep_Tnsr.cuda()
             mcep_Tnsr = Variable(mcep_Tnsr) # to be bibun kanou
-            cvmcep_wopow = model(mcep_Tnsr)
+            cvmcep_wopow = g(mcep_Tnsr)
             if use_cuda:
                 cvmcep_wopow = cvmcep_wopow.data.cpu().numpy()
             else:
@@ -140,7 +140,7 @@ def main(*argv):
                                             rmcep=mcep,
                                             alpha=sconf.mcep_alpha,
                                             )
-                wavpath = os.path.join(test_dir, f + '_NN_VC.wav')
+                wavpath = os.path.join(test_dir, f + '_GAN_VC.wav')
 
             # synthesis DIFFVC w/ GV
             # disable
@@ -151,7 +151,7 @@ def main(*argv):
                                                  rmcep=mcep,
                                                  alpha=sconf.mcep_alpha,
                                                  )
-                wavpath = os.path.join(test_dir, f + '_NN_DIFFVC.wav')
+                wavpath = os.path.join(test_dir, f + '_GAN_DIFFVC.wav')
 
             # write waveform
             wav = np.clip(wav, -32768, 32767)
