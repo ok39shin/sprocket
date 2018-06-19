@@ -112,23 +112,9 @@ def load_Model():
     # print(model)
     return model
 
-def set_LossFandOptimF(model):
-    """
-    settings of LossF OptimF 
-    
-    input   : No
-    output  : lo
-
-    """
-    # setting Loss Function
-    criterion = nn.MSELoss() # check: change to use test loss
-    
-    # setting Optim Function
-    optimizer = optim.Adam(model.parameters(), lr=0.01) # lr = study rate
-    return criterion, optimizer
 
 class model_param():
-    def __init__(self, mdl, crit, optm, steps, mdlf):
+    def __init__(self, mdl, optm, steps, mdlf):
         """
         input:
               mdl   -> Network model 
@@ -138,7 +124,6 @@ class model_param():
               mdlf  -> model file 
         """
         self.mdl = mdl
-        self.crit = crit
         self.optm = optm
         self.steps = steps
         self.mdlf = mdlf
@@ -170,63 +155,60 @@ def train(g, d,
 def train_d(g, d, loader_train, loader_dev):
     # Training Discriminator on real + fake
     g.mdl.eval()  # change mode to Eval
-    tr_real_loss_d = []
-    tr_fake_loss_d = []
     minloss_d = 1.0
     best_d = copy.copy(d.mdl) # copy now best d
+    eps = 1e-20
     for steps in range(d.steps):
         d.mdl.train() # change mode to Train
         print('Discriminator [%d/%d]' % (steps, d.steps))
+        tr_real_loss_d = []
+        tr_fake_loss_d = []
         for src, tar in loader_train:
-            # prepare for train
-            variable1 = Variable(torch.ones(src.shape[0], 1))  # for train real
-            variable0 = Variable(torch.zeros(src.shape[0], 1)) # for train fake
-            if use_cuda:
-                variable1 = variable1.cuda()
-                variable0 = variable0.cuda()
             # train on real
             tar = Variable(tar)             # enable to bibun
             d.optm.zero_grad()        # reset result of cal grad
-            real_dic_d = d.mdl(tar)   # D estimate real value
-            real_loss_d = d.crit(real_dic_d, variable1) # loss from real
-            real_loss_d.backward()         # cal back propagation of loss
-            tr_real_loss_d.append(real_loss_d.item())
-    
+            real_d = d.mdl(tar)   # D estimate real value
+
             # train on fake from G
             src = Variable(src)
             fake_tar = g.mdl(src)         # fake from G
-            fake_dic_d = d.mdl(fake_tar)  # D estimate fake value
-            fake_loss_d = d.crit(fake_dic_d, variable0) # loss from fake
-            fake_loss_d.backward()
-            tr_fake_loss_d.append(fake_loss_d.item())
-    
+            fake_d = d.mdl(fake_tar)  # D estimate fake value
+   
+            # Loss
+            loss_real_d = -(torch.log(real_d + eps))
+            loss_fake_d = -(torch.log(1 - fake_d + eps))
+            loss_d = loss_real_d + loss_fake_d
+            
+            tr_real_loss_d.append(loss_real_d.item())
+            tr_fake_loss_d.append(loss_fake_d.item())
+
+            loss_d.backward(retain_graph=True)
             d.optm.step()      # update param
-        
+        # train end
+
         d.mdl.eval()
         # cal loss of dev data
         dev_real_loss_d = []
         dev_fake_loss_d = []
         for src, tar in loader_dev:
-            # prepare for train
-            variable1 = Variable(torch.ones(src.shape[0], 1))  # for train real
-            variable0 = Variable(torch.zeros(src.shape[0], 1)) # for train fake
-            if use_cuda:
-                variable1 = variable1.cuda()
-                variable0 = variable0.cuda()
             # cal loss from develop real data
             tar = Variable(tar)             # enable to bibun
             d.optm.zero_grad()        # reset result of cal grad
-            real_dic_d = d.mdl(tar)   # D estimate real value
-            real_loss_d = d.crit(real_dic_d, variable1) # loss from real
-            dev_real_loss_d.append(real_loss_d.item())
+            real_d = d.mdl(tar)   # D estimate real value
     
             # cal loss from develop fake data from G
             src = Variable(src)
             fake_tar = g.mdl(src)         # fake from G
-            fake_dic_d = d.mdl(fake_tar)  # D estimate fake value
-            fake_loss_d = d.crit(fake_dic_d, variable0) # loss from fake
-            dev_fake_loss_d.append(fake_loss_d.item())
-    
+            fake_d = d.mdl(fake_tar)  # D estimate fake value
+
+            # Loss
+            loss_real_d = -(torch.log(real_d + eps))
+            loss_fake_d = -(torch.log(1 - fake_d + eps))
+
+            dev_real_loss_d.append(loss_real_d.item())
+            dev_fake_loss_d.append(loss_fake_d.item())
+        # eval end
+
         print('''TrRealLoss: %.5f, TrFakeLoss: %.5f
 DevRealLoss: %.5f, DevFakeLoss: %.5f''' %
               (np.mean(tr_real_loss_d), np.mean(tr_fake_loss_d),
@@ -253,41 +235,39 @@ def train_g(g, d, loader_train, loader_dev):
         tr_loss_g = []
         tr_loss_from_d = []
         for src, tar in loader_train:
-            # prepare for train
-            variable1 = Variable(torch.ones(src.shape[0], 1))  # for train real
-            if use_cuda:
-                variable1 = variable1.cuda()
             # train G
             src, tar = Variable(src), Variable(tar)
             g.mdl.zero_grad()
             fake_tar = g.mdl(src)
-            loss_g = g.crit(fake_tar, tar) # loss from tar
-            tr_loss_g.append(loss_g.item())
-            loss_g.backward(retain_graph=True)
 
-            fake_dic_d = d.mdl(fake_tar)
-            loss_from_d = g.crit(fake_dic_d, variable1) # loss from D
+            fake_d = d.mdl(fake_tar)
+
+            # Loss
+            loss_mse = nn.MSELoss(fake_tar, tar)
+            loss_from_d = -(torch.log(fake_d + eps))
+            loss_g = loss_mse + loss_from_d
+
+            tr_loss_g.append(loss_mse.item())
             tr_loss_from_d.append(loss_from_d.item())
-            loss_from_d.backward() 
 
+            loss_g.backward()
             g.optm.step()
     
         g.mdl.eval()  # change mode to Train
         dev_loss_g = []
         dev_loss_from_d = []
         for src, tar in loader_dev:
-            # prepare
-            variable1 = Variable(torch.ones(src.shape[0], 1))  # for train real
-            if use_cuda:
-                variable1 = variable1.cuda()
             # cal loss of dev 
             src, tar = Variable(src), Variable(tar)
             fake_tar = g.mdl(src)
-            loss_g = g.crit(fake_tar, tar) # loss from tar
-            dev_loss_g.append(loss_g.item())
 
-            fake_dic_d = d.mdl(fake_tar)
-            loss_from_d = g.crit(fake_dic_d, variable1) # loss from D
+            fake_d = d.mdl(fake_tar)
+
+            # Loss
+            loss_mse = nn.MSELoss(fake_tar, tar)
+            loss_from_d = -(torch.log(fake_d + eps))
+
+            dev_loss_g.append(loss_mse.item())
             dev_loss_from_d.append(loss_from_d.item())
 
         print('''TrLossG: %.5f, TrLossfromD: %.5f
@@ -323,18 +303,17 @@ def main():
         model_d = model_d.cuda()
 
     # get loss and optimize function
-    criterion_g, optimizer_g = set_LossFandOptimF(model_g)
-    criterion_d, optimizer_d = set_LossFandOptimF(model_d)
+    # setting Optim Function
+    optimizer_g = optim.Adam(model_g.parameters(), lr=0.01) # lr = study rate
+    optimizer_d = optim.Adam(model_d.parameters(), lr=0.01)
 
     mdlf_g = os.path.join('my_model','gan_g.mdl')
     mdlf_d = os.path.join('my_model','gan_d.mdl')
     model_g_param = model_param(model_g,
-                                criterion_g,
                                 optimizer_g,
                                 steps_g,
                                 mdlf_g)
     model_d_param = model_param(model_d,
-                                criterion_d,
                                 optimizer_d,
                                 steps_d,
                                 mdlf_d)
