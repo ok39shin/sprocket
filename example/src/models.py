@@ -45,12 +45,16 @@ class SimpleDisc(nn.Module):
         super(SimpleDisc, self).__init__()
         self.fc1 = nn.Linear(24, 12)
         self.fc2 = nn.Linear(12, 1)
+        self.relu = nn.LeakyReLU()
+        self.dropout = nn.Dropout(0.5)
+        self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
         x = self.fc1(x)
-        x = F.relu(x)
+        x = self.relu(x)
+        x = self.dropout(x)
         x = self.fc2(x)
-        return x
+        return self.sigmoid(x)
 
 if __name__ == '__main__':
     model_path = os.path.join('my_model', 'first_NN.mdl')
